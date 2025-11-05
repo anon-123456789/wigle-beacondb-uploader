@@ -45,42 +45,42 @@ with open(args.csv_file, newline='') as file:
                 case "BT":
                     try:
                         number_bluetooth += 1
-                        unique_locations[location_id]["bluetoothBeacons"].append({"macAddress": row[0], "age": 0, "name": row[1], "signalStrength": int(row[6])})
+                        unique_locations[location_id]["bluetoothBeacons"].append({"macAddress": row[0], "name": row[1], "signalStrength": int(row[6])})
                     except ValueError:
                         print(f"Failed to process the Bluetooth beacon with MAC {row[0]} on line {index}")
                 case "BLE":
                     try:
                         number_bluetooth += 1
-                        unique_locations[location_id]["bluetoothBeacons"].append({"macAddress": row[0], "age": 0, "name": row[1], "signalStrength": int(row[6])})
+                        unique_locations[location_id]["bluetoothBeacons"].append({"macAddress": row[0], "name": row[1], "signalStrength": int(row[6])})
                     except ValueError:
                         print(f"Failed to process the Bluetooth beacon with MAC {row[0]} on line {index}")
                 case "NR":
                     try:
-                        unique_locations[location_id]["cellTowers"].append({"radioType": "nr", "mobileCountryCode": int(row[0].split("_")[0][:3]), "mobileNetworkCode": int(row[0].split("_")[0][-3:]), "locationAreaCode": int(row[0].split("_")[1]), "cellId": int(row[0].split("_")[2]), "age": 0, "signalStrength": int(row[6])})
+                        unique_locations[location_id]["cellTowers"].append({"radioType": "nr", "mobileCountryCode": int(row[0].split("_")[0][:3]), "mobileNetworkCode": int(row[0].split("_")[0][-3:]), "locationAreaCode": int(row[0].split("_")[1]), "cellId": int(row[0].split("_")[2]), "signalStrength": int(row[6])})
                         number_cellular += 1
                     except ValueError:
                         print(f"Failed to process the NR network with identifier {row[0]} on line {index}")
                 case "LTE":
                     try:
-                        unique_locations[location_id]["cellTowers"].append({"radioType": "lte", "mobileCountryCode": int(row[0].split("_")[0][:3]), "mobileNetworkCode": int(row[0].split("_")[0][-3:]), "locationAreaCode": int(row[0].split("_")[1]), "cellId": int(row[0].split("_")[2]), "age": 0, "signalStrength": int(row[6])})
+                        unique_locations[location_id]["cellTowers"].append({"radioType": "lte", "mobileCountryCode": int(row[0].split("_")[0][:3]), "mobileNetworkCode": int(row[0].split("_")[0][-3:]), "locationAreaCode": int(row[0].split("_")[1]), "cellId": int(row[0].split("_")[2]), "signalStrength": int(row[6])})
                         number_cellular += 1
                     except ValueError:
                         print(f"Failed to process the LTE network with identifier {row[0]} on line {index}")
                 case "GSM":
                     try:
-                        unique_locations[location_id]["cellTowers"].append({"radioType": "gsm", "mobileCountryCode": int(row[0].split("_")[0][:3]), "mobileNetworkCode": int(row[0].split("_")[0][-3:]), "locationAreaCode": int(row[0].split("_")[1]), "cellId": int(row[0].split("_")[2]), "age": 0, "signalStrength": int(row[6])})
+                        unique_locations[location_id]["cellTowers"].append({"radioType": "gsm", "mobileCountryCode": int(row[0].split("_")[0][:3]), "mobileNetworkCode": int(row[0].split("_")[0][-3:]), "locationAreaCode": int(row[0].split("_")[1]), "cellId": int(row[0].split("_")[2]), "signalStrength": int(row[6])})
                         number_cellular += 1
                     except ValueError:
                         print(f"Failed to process the GSM network with identifier {row[0]} on line {index}")
                 case "WCDMA":
                     try:
-                        unique_locations[location_id]["cellTowers"].append({"radioType": "wcdma", "mobileCountryCode": int(row[0].split("_")[0][:3]), "mobileNetworkCode": int(row[0].split("_")[0][-3:]), "locationAreaCode": int(row[0].split("_")[1]), "cellId": int(row[0].split("_")[2]), "age": 0, "signalStrength": int(row[6])})
+                        unique_locations[location_id]["cellTowers"].append({"radioType": "wcdma", "mobileCountryCode": int(row[0].split("_")[0][:3]), "mobileNetworkCode": int(row[0].split("_")[0][-3:]), "locationAreaCode": int(row[0].split("_")[1]), "cellId": int(row[0].split("_")[2]), "signalStrength": int(row[6])})
                         number_cellular += 1
                     except ValueError:
                         print(f"Failed processing the WCDMA network with identifier {row[0]} on line {index}")
                 case "WIFI":
                     try:
-                        unique_locations[location_id]["wifiAccessPoints"].append({"macAddress": row[0], "age": 0, "channel": int(row[4]), "frequency": int(row[5]), "signalStrength": int(row[6]), "ssid": row[1]})
+                        unique_locations[location_id]["wifiAccessPoints"].append({"macAddress": row[0], "channel": int(row[4]), "frequency": int(row[5]), "signalStrength": int(row[6]), "ssid": row[1]})
                         number_wifi += 1
                     except ValueError:
                         print(f"Failed processing the Wi-Fi network with MAC {row[0]} on line {index}")
